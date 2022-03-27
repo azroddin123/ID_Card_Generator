@@ -1,5 +1,5 @@
 from faker import Faker 
-
+import re
 from googletrans import Translator
 from numpy import full
 faker = Faker()
@@ -12,13 +12,21 @@ ar_names = []
 
 
 for i in range(n) :
-    en_name = faker.name()
-    first_name = faker.first_name()
-    full_name ="Name: " + first_name +" " +en_name
-    en_names.append(full_name)
+    # en_name = faker.name()
+    # first_name = faker.first_name()
+    # full_name ="Name: " + first_name +" " +en_name
+    full_name = faker.first_name() + " " + faker.first_name() +" "+ faker.last_name()
+    full_name ="Name: " + full_name
     print(full_name)
     ar_name = translator.translate(full_name,dest="ar")
-    ar_names.append(ar_name.text)
+    
+    only_latin_text = re.search('[a-zA-Z]', ar_name.text)
+    if(only_latin_text) :
+        print("Skipping.....")
+        pass
+    else :
+         en_names.append(full_name)
+         ar_names.append(ar_name.text)
     
 with open("english_names_50.text","w") as file:
     for i in range(len(en_names)) :
