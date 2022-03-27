@@ -9,12 +9,15 @@ ar_countries_list = ['أفغانستان', 'جزر آلاند', 'ألبانيا'
 #   ar_name = translator.translate(en_coutries[i],dest="ar")
 #   ar_countries_list.append(ar_name.text)
   
-with open("english_county_names.text","a") as file:
+with open("english_county_names.text","w") as file:
     for i in range(len(en_coutries)) :
-        file.write(f"{en_coutries[i]} \n")
-with open("ar_county_names.text","a") as file:
+        country ="Nationality: "+ en_coutries[i]
+        file.write(f"{country}\n")
+        
+with open("ar_county_names.text","w") as file:
     for i in range(len(ar_countries_list)) :
-        file.write(f"{ar_countries_list[i]} \n")
+        ar_name = "الجنسية" + ": "+ar_countries_list[i]
+        file.write(f"{ar_name}\n")
 
 # print(ar_countries_list)
 # print(len(ar_countries_list))

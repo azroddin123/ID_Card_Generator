@@ -9,3 +9,16 @@ for i in range(len(occupation_list)) :
     ar_occupation.append(ar_name.text)
     
 print(ar_occupation)
+
+
+
+with open("ar_occupaion_names.text","w") as file:
+    for i in range(len(occupation_list)) :
+            file.write(f"{ar_occupation[i]} \n")
+  
+
+
+
+with open("en_occupaion_names.text","w") as file:
+    for i in range(len(occupation_list)) :
+            file.write(f"{occupation_list[i]} \n")
