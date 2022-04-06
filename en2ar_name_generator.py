@@ -22,17 +22,17 @@ for i in range(n) :
     
     only_latin_text = re.search('[a-zA-Z]', ar_name.text)
     if(only_latin_text) :
-        print("Skipping.....")
+        print(f"Skipping.....{only_latin_text}")
         pass
     else :
          en_names.append(full_name)
          ar_names.append(ar_name.text)
     
-with open("english_names_50.text","w") as file:
+with open("./data/english_names_50.text","w") as file:
     for i in range(len(en_names)) :
         file.write(f"{en_names[i]}\n")   
         
-with open("arabic_names.text_50","w") as file:
+with open("./data/arabic_names.text_50","w") as file:
     for i in range(len(ar_names)) :
         file.write(f"{ar_names[i]}\n") 
         

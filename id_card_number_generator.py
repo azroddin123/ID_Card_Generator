@@ -23,12 +23,12 @@ def uae_id_generator() :
     return country_code+"-"+second+"-"+third+"-"+four
 
 
-with open("UAE_card_number.text","a") as file:
+with open("./data/UAE_card_number.text","a") as file:
     for i in range(100000) :
         id_card = uae_id_generator()
         file.write(f"{id_card} \n")
 
-with open("katar_card_number.text","a") as file:
+with open("./data/katar_card_number.text","a") as file:
     for i in range(100000) :
         id_card = qatar_id_generator()
         file.write(f"{id_card} \n")
